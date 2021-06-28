@@ -17,7 +17,7 @@ export function loadMovies() {
   };
 }
 
-export function addToFavourites(movie) {
+export function toggleFavourites(movie) {
   return {
     type: actionTypes.ADD_TO_FAVORITES,
     movie
