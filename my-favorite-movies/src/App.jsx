@@ -8,6 +8,7 @@ import Header from './components/Header';
 import List from './components/Movies';
 import Detail from './components/Detail';
 import Favourites from './components/Favourites/index';
+import SearchMovie from './components/SearchMovie';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Switch>
           <Route path="/" exact component={List} />
           <Route path="/favourites" component={Favourites} />
+          <Route path="/search/:infoMovieSearched" component={SearchMovie} />
           <Route path="/:movieId" component={Detail} />
         </Switch>
       </BrowserRouter>
