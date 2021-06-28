@@ -1,9 +1,17 @@
+/* eslint-disable no-unused-vars */
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { addToFavourites } from '../../redux/actions/actionCreators';
 
-const Movie = ({ movie }) => (
-  <>
+const Movie = ({ movie }) => {
+  const favourites = useSelector((store) => store.favourites);
+  const dispatch = useDispatch();
+  const handleFavourite = () => {
+    dispatch(addToFavourites(movie));
+  };
+  return (
     <li>
       <Link to={`/${movie.id}`}>
         <div>
@@ -12,9 +20,10 @@ const Movie = ({ movie }) => (
           <p>{movie.overview}</p>
         </div>
       </Link>
+      <button type="button" onClick={() => handleFavourite(movie)}>Fav</button>
     </li>
-  </>
-);
+  );
+};
 
 Movie.propTypes = {
   movie: PropTypes.shape({

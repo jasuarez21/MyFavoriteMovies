@@ -5,7 +5,7 @@ import Movie from './Movie';
 const List = ({ movies }) => (
   <ul>
     {
-          movies.map((movie) => <Movie movie={movie} />)
+    movies.map((movie) => <Movie movie={movie} />)
         }
   </ul>
 );
