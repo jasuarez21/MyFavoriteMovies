@@ -8,7 +8,8 @@ import List from '../Movies/List';
 const SearchMovie = () => {
   const { infoMovieSearched } = useParams();
   const movies = useSelector((store) => store.movies);
-  const filteredMovies = movies.filter((movie) => movie.title.toLowerCase().includes(infoMovieSearched.toLowerCase()));
+  const filterWithTitle = (movie) => movie.title.toLowerCase().includes(infoMovieSearched);
+  const filteredMovies = movies.filter((movie) => filterWithTitle(movie));
   return (
     <List movies={filteredMovies} />
   );

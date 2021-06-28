@@ -8,7 +8,7 @@ const Header = () => {
     setSearchedMovie(e.target.value);
   };
   const handleSearch = () => {
-    history.push(`/search/${searchedMovie}`);
+    history.push(`/search/${searchedMovie.toLowerCase()}`);
   };
   return (
     <header>
