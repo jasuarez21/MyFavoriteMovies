@@ -7,8 +7,40 @@
   text-align: center;
 }
 
+.movie__header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 60px;
+}
+
+.movie__header h3 {
+  width: 90%;
+  font-size: 16px;
+  text-align: center;
+}
+
 .movie__link {
   text-decoration: none;
+}
+
+.movie__button {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  background: none;
+  border: none;
+}
+
+.movie__button img {
+  width: 30px;
+  height: 30px;
 }
 
 .movie img {

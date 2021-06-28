@@ -15,29 +15,30 @@ const Movie = ({ movie, showDetails }) => {
   const checkIsFavouriteMovie = (movieId) => favourites.find((item) => item.id === movieId);
   return (
     <li className="movie">
-      <Link className="movie__link" to={`/${movie.id}`}>
-        <div>
-          <h3>{movie.title}</h3>
-          <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={movie.title} />
-          {
-            showDetails && (
-              <p>{movie.overview}</p>
-            )
-          }
-        </div>
-      </Link>
-      <button type="button" onClick={() => handleFavourite(movie)}>
-        <img
-          src={
+      <div className="movie__header">
+        <h3>{movie.title}</h3>
+        <button type="button" className="movie__button" onClick={() => handleFavourite(movie)}>
+          <img
+            src={
           checkIsFavouriteMovie(movie.id) ? (
             'https://i.postimg.cc/MpWYzkxW/icons8-love-30.png'
           ) : (
             'https://i.postimg.cc/7ZM0G5B0/icons8-love-48.png'
           )
-        }
-          alt="Favourite"
-        />
-      </button>
+  }
+            alt="Favourite"
+          />
+        </button>
+
+      </div>
+      <Link className="movie__link" to={`/${movie.id}`}>
+        <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={movie.title} />
+        {
+            showDetails && (
+              <p>{movie.overview}</p>
+            )
+          }
+      </Link>
     </li>
   );
 };
