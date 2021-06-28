@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Movie from './Movie';
+import './styles/listMovies.css';
 
 const List = ({ movies }) => (
-  <ul>
+  <ul className="movie-list">
     {
     movies.map((movie) => <Movie movie={movie} />)
         }

@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { toggleFavourites } from '../../redux/actions/actionCreators';
+import './styles/movies.css';
 
 const Movie = ({ movie }) => {
   const favourites = useSelector((store) => store.favourites);
@@ -13,7 +14,7 @@ const Movie = ({ movie }) => {
   };
   const checkIsFavouriteMovie = (movieId) => favourites.find((item) => item.id === movieId);
   return (
-    <li>
+    <li className="movie">
       <Link to={`/${movie.id}`}>
         <div>
           <h3>{movie.title}</h3>
