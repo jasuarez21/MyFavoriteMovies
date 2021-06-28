@@ -3,14 +3,15 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { addToFavourites } from '../../redux/actions/actionCreators';
+import { toggleFavourites } from '../../redux/actions/actionCreators';
 
 const Movie = ({ movie }) => {
   const favourites = useSelector((store) => store.favourites);
   const dispatch = useDispatch();
   const handleFavourite = () => {
-    dispatch(addToFavourites(movie));
+    dispatch(toggleFavourites(movie));
   };
+  const checkIsFavouriteMovie = (movieId) => favourites.find((item) => item.id === movieId);
   return (
     <li>
       <Link to={`/${movie.id}`}>
@@ -20,7 +21,18 @@ const Movie = ({ movie }) => {
           <p>{movie.overview}</p>
         </div>
       </Link>
-      <button type="button" onClick={() => handleFavourite(movie)}>Fav</button>
+      <button type="button" onClick={() => handleFavourite(movie)}>
+        <img
+          src={
+          checkIsFavouriteMovie(movie.id) ? (
+            'https://i.postimg.cc/MpWYzkxW/icons8-love-30.png'
+          ) : (
+            'https://i.postimg.cc/7ZM0G5B0/icons8-love-48.png'
+          )
+        }
+          alt="Favourite"
+        />
+      </button>
     </li>
   );
 };

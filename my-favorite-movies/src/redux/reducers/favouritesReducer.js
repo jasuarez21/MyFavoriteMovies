@@ -1,18 +1,22 @@
+/* eslint-disable no-case-declarations */
 import actionTypes from '../actions/actionTypes';
 
 function favouritesReducer(favourites = [], action) {
+  let updateFavourites = [...favourites];
   switch (action.type) {
-    case actionTypes.DELETE_MOVIE_FROM_FAVORITES:
-      return favourites.filter((movie) => movie.id !== action.movieId);
-
     case actionTypes.ADD_TO_FAVORITES:
+      const isFavouriteMovie = favourites.find((movie) => movie.id === action.movie.id);
+      if (isFavouriteMovie) {
+        updateFavourites = favourites.filter((movie) => movie.id !== action.movie.id);
+        return updateFavourites;
+      }
       return [
-        ...favourites,
+        ...updateFavourites,
         action.movie
       ];
 
     default:
-      return favourites;
+      return updateFavourites;
   }
 }
 
