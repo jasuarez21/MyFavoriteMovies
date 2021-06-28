@@ -1,9 +1,15 @@
 import React from 'react';
-import './App.css';
+import List from './components/List';
+import Detail from './components/Detail';
+import Favorites from './components/Favorites';
 
 function App() {
   return (
-    <h1>My Movie app</h1>
+    <>
+      <List />
+      <Detail />
+      <Favorites />
+    </>
   );
 }
 
