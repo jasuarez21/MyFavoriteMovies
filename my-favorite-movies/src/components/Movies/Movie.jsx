@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import { toggleFavourites } from '../../redux/actions/actionCreators';
 import './styles/movies.css';
 
-const Movie = ({ movie }) => {
+const Movie = ({ movie, showDetails }) => {
   const favourites = useSelector((store) => store.favourites);
   const dispatch = useDispatch();
   const handleFavourite = () => {
@@ -15,11 +15,15 @@ const Movie = ({ movie }) => {
   const checkIsFavouriteMovie = (movieId) => favourites.find((item) => item.id === movieId);
   return (
     <li className="movie">
-      <Link to={`/${movie.id}`}>
+      <Link className="movie__link" to={`/${movie.id}`}>
         <div>
           <h3>{movie.title}</h3>
           <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={movie.title} />
-          <p>{movie.overview}</p>
+          {
+            showDetails && (
+              <p>{movie.overview}</p>
+            )
+          }
         </div>
       </Link>
       <button type="button" onClick={() => handleFavourite(movie)}>
@@ -39,6 +43,7 @@ const Movie = ({ movie }) => {
 };
 
 Movie.propTypes = {
+  showDetails: PropTypes.bool.isRequired,
   movie: PropTypes.shape({
     title: PropTypes.string.isRequired,
     poster_path: PropTypes.string.isRequired,

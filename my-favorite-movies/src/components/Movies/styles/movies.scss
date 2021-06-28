@@ -1,9 +1,16 @@
 .movie {
-    border: 1px solid red;
     width: 200px;
-    height: 300px;
+    height: 400px;
+    margin: 20px;
+    border-radius: 5px;
+    list-style: none;
+    text-align: center;
+    &__link{
+        text-decoration: none;
+    }
     img {
         width: 100%;
         height: auto;
+        border-radius: 10px;
     }
 }

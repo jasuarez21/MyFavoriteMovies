@@ -6,7 +6,7 @@ import './styles/listMovies.css';
 const List = ({ movies }) => (
   <ul className="movie-list">
     {
-    movies.map((movie) => <Movie movie={movie} />)
+    movies.map((movie) => <Movie movie={movie} showDetails={false} />)
         }
   </ul>
 );

@@ -18,7 +18,7 @@ const Detail = () => {
     <div>
       {
         movieSelected ? (
-          <Movie movie={movieSelected} />
+          <Movie movie={movieSelected} showDetails />
         ) : (
           <h3>Movie is not defined</h3>
         )
