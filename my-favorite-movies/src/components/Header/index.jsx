@@ -14,6 +14,7 @@ const Header = () => {
   return (
     <header className="header">
       <nav className="header__navigation">
+        <img className="header__navigation--logo" src="https://i.postimg.cc/NjcqHPbp/icons8-movie-projector-100.png" alt="MyFavouritosMovies" />
         <Link className="header__navigation--link" to="/favourites">
           FAVOURITES
         </Link>

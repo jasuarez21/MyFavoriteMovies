@@ -11,6 +11,9 @@
         width: 20vw;
         height: 100%;
         align-items: center;
+        &--logo {
+            height: 40px;
+        }
         &--link {
             color: white;
             font-weight: bold;

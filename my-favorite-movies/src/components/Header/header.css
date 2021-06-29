@@ -26,6 +26,10 @@
           align-items: center;
 }
 
+.header__navigation--logo {
+  height: 40px;
+}
+
 .header__navigation--link {
   color: white;
   font-weight: bold;
