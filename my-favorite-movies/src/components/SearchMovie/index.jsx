@@ -4,6 +4,7 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import List from '../Movies/List';
+import './index.css';
 
 const SearchMovie = () => {
   const { infoMovieSearched } = useParams();
