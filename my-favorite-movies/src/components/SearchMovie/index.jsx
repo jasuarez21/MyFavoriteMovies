@@ -11,7 +11,10 @@ const SearchMovie = () => {
   const filterWithTitle = (movie) => movie.title.toLowerCase().includes(infoMovieSearched);
   const filteredMovies = movies.filter((movie) => filterWithTitle(movie));
   return (
-    <List movies={filteredMovies} />
+    <>
+      <h3 className="title">Your search</h3>
+      <List movies={filteredMovies} />
+    </>
   );
 };
 
