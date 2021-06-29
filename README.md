@@ -1,12 +1,12 @@
 # MyFavoriteMovies
 
-How tu run project:
+How tu run project: </br>
 
-1 - Clone the repository
-2 - Npm install
-3 - Npm start
+1 - Clone the repository </br>
+2 - Npm install </br>
+3 - Npm start </br>
 
-To run tests:
+To run tests: </br>
 1 - Npm test 
 
 <h3 align="left">Languages and Tools:</h3>
