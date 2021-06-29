@@ -15,6 +15,12 @@ describe('Given loadMovies function', () => {
     await loadMovies()(dispatch);
     expect(dispatch).toHaveBeenCalled();
   });
+  test('Should dispatch to have been called', async () => {
+    const dispatch = jest.fn();
+    axios.mockRejectedValueOnce({});
+    await loadMovies()(dispatch);
+    expect(dispatch).toHaveBeenCalled();
+  });
 });
 
 describe('Given toggleFavourites function', () => {
