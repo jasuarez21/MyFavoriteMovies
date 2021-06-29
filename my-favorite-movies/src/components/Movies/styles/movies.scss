@@ -1,0 +1,42 @@
+.movie {
+    width: 200px;
+    height: 400px;
+    margin: 20px;
+    border-radius: 5px;
+    list-style: none;
+    text-align: center;
+    &__header{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 60px;
+        h3 {
+            width: 90%;
+            font-size: 16px;
+            text-align: center;
+        }
+    }
+    &__link{
+        text-decoration: none;
+    }
+    &__button{
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        background: none;
+        border: none;
+
+        img{
+            width: 30px;
+            height: 30px;
+        }
+    }
+    img {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+        box-shadow: 13px 10px 44px -21px rgba(0,0,0,0.75);
+        -webkit-box-shadow: 13px 10px 44px -21px rgba(0,0,0,0.75);
+        -moz-box-shadow: 13px 10px 44px -21px rgba(0,0,0,0.75);
+    }
+}

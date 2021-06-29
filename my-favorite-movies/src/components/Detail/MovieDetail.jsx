@@ -4,9 +4,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { toggleFavourites } from '../../redux/actions/actionCreators';
-import './styles/movies.css';
+import './detail.css';
 
-const Movie = ({ movie, showDetails }) => {
+const MovieDetail = ({ movie }) => {
   const favourites = useSelector((store) => store.favourites);
   const dispatch = useDispatch();
   const handleFavourite = () => {
@@ -14,10 +14,10 @@ const Movie = ({ movie, showDetails }) => {
   };
   const checkIsFavouriteMovie = (movieId) => favourites.find((item) => item.id === movieId);
   return (
-    <li className="movie">
-      <div className="movie__header">
-        <h3>{movie.title}</h3>
-        <button type="button" className="movie__button" onClick={() => handleFavourite(movie)}>
+    <section className="movie-detail">
+      <header className="movie-detail__header">
+        <h3 className="movie-detail__header--title">{movie.title}</h3>
+        <button type="button" className="movie-detail__header--button" onClick={() => handleFavourite(movie)}>
           <img
             src={
           checkIsFavouriteMovie(movie.id) ? (
@@ -29,27 +29,27 @@ const Movie = ({ movie, showDetails }) => {
             alt="Favourite"
           />
         </button>
-
-      </div>
-      <Link className="movie__link" to={`/${movie.id}`}>
-        <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={movie.title} />
-        {
-            showDetails && (
-              <p>{movie.overview}</p>
-            )
-          }
-      </Link>
-    </li>
+      </header>
+      <section className="movie-detail__information">
+        <img className="movie-detail__information--image" src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={movie.title} />
+        <div className="movie-detail__text">
+          <p className="movie-detail__text--title">Release date</p>
+          <p className="movie-detail__text--date">{movie.release_date}</p>
+          <p className="movie-detail__text--title">Description</p>
+          <p className="movie-detail__text--overview">{movie.overview}</p>
+        </div>
+      </section>
+    </section>
   );
 };
 
-Movie.propTypes = {
-  showDetails: PropTypes.bool.isRequired,
+MovieDetail.propTypes = {
   movie: PropTypes.shape({
     title: PropTypes.string.isRequired,
     poster_path: PropTypes.string.isRequired,
     overview: PropTypes.string.isRequired,
+    release_date: PropTypes.string.isRequired,
     id: PropTypes.number.isRequired
   }).isRequired
 };
-export default Movie;
+export default MovieDetail;

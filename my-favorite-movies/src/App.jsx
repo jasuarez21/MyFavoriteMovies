@@ -9,6 +9,7 @@ import List from './components/Movies';
 import Detail from './components/Detail';
 import Favourites from './components/Favourites/index';
 import SearchMovie from './components/SearchMovie';
+import './App.css';
 
 function App() {
   return (

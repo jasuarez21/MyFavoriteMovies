@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
+import './header.css';
 
 const Header = () => {
   const [searchedMovie, setSearchedMovie] = useState('');
@@ -11,15 +12,18 @@ const Header = () => {
     history.push(`/search/${searchedMovie.toLowerCase()}`);
   };
   return (
-    <header>
-      <Link to="/favourites">
-        FAVOURITES
-      </Link>
-      <Link to="/">
-        LIST
-      </Link>
-      <input type="text" placeholder="Insert movie" className="movie-list__input" onChange={handleInput} />
-      <button type="button" onClick={handleSearch}>
+    <header className="header">
+      <nav className="header__navigation">
+        <img className="header__navigation--logo" src="https://i.postimg.cc/NjcqHPbp/icons8-movie-projector-100.png" alt="MyFavouritosMovies" />
+        <Link className="header__navigation--link" to="/favourites">
+          FAVOURITES
+        </Link>
+        <Link className="header__navigation--link" to="/">
+          LIST
+        </Link>
+      </nav>
+      <input type="text" placeholder="Insert movie" className="header__navigation--input" onChange={handleInput} />
+      <button type="button" className="header__navigation--button" onClick={handleSearch}>
         <img src="https://i.postimg.cc/J7XwkXXs/icons8-search-48.png" alt="Search" />
       </button>
     </header>
